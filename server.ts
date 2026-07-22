@@ -380,7 +380,7 @@ app.post('/api/download/info', async (req, res) => {
               directLinks.push({
                 quality: `Foto Slide ${idx + 1}`,
                 format: 'jpg',
-                size: '',
+                size: 'BETA',
                 downloadUrl: `/api/download/file?title=${encodeURIComponent(videoTitle + ' Slide ' + (idx + 1))}&format=jpg&platform=tiktok&url=${encodeURIComponent(absoluteImg)}`,
                 directUrl: absoluteImg
               });
@@ -393,7 +393,7 @@ app.post('/api/download/info', async (req, res) => {
               directLinks.push({
                 quality: 'No Watermark HD',
                 format: 'mp4',
-                size: '',
+                size: 'BETA',
                 downloadUrl: `/api/download/file?title=${encodeURIComponent(videoTitle)}&format=mp4&platform=tiktok&url=${encodeURIComponent(absoluteVid)}`,
                 directUrl: absoluteVid
               });
@@ -406,7 +406,7 @@ app.post('/api/download/info', async (req, res) => {
               directLinks.push({
                 quality: 'With Watermark tiktok',
                 format: 'mp4',
-                size: '',
+                size: 'BETA',
                 downloadUrl: `/api/download/file?title=${encodeURIComponent(videoTitle + ' With Watermark')}&format=mp4&platform=tiktok&url=${encodeURIComponent(absoluteWmVid)}`,
                 directUrl: absoluteWmVid
               });
@@ -423,7 +423,7 @@ app.post('/api/download/info', async (req, res) => {
           directLinks.push({
             quality: `${musicTitle}`,
             format: 'mp3',
-            size: '',
+            size: 'BETA',
             downloadUrl: `/api/download/file?title=${encodeURIComponent(videoTitle + ' - ' + musicTitle)}&format=mp3&platform=tiktok&url=${encodeURIComponent(absoluteMusic)}`,
             directUrl: absoluteMusic
           });
@@ -558,7 +558,7 @@ app.post('/api/download/info', async (req, res) => {
               directLinks.push({
                 quality: 'Audio (MP3)',
                 format: 'mp3',
-                size: '',
+                size: 'BETA',
                 downloadUrl: `/api/download/file?title=${encodeURIComponent(videoTitle)}&format=mp3&url=${encodeURIComponent(audioUrl)}`,
                 directUrl: audioUrl
               });
@@ -571,7 +571,7 @@ app.post('/api/download/info', async (req, res) => {
                 directLinks.push({
                   quality: 'Audio',
                   format: 'mp3',
-                  size: '',
+                  size: 'BETA',
                   downloadUrl: `/api/download/file?title=${encodeURIComponent(videoTitle)}&format=mp3&url=${encodeURIComponent(videoItem)}`,
                   directUrl: videoItem
                 });
@@ -615,9 +615,9 @@ app.post('/api/download/info', async (req, res) => {
           if (res.status === 'fulfilled' && res.value && res.value.downloadUrl) {
             if (i === 0) {
               directLinks.push({
-                quality: 'Audio (MP3 320kbps HD)',
+                quality: 'Audio 320kbps HD',
                 format: 'mp3',
-                size: 'Audio',
+                size: 'BETA',
                 downloadUrl: `/api/download/file?title=${encodeURIComponent(videoTitle)}&format=mp3&platform=youtube&url=${encodeURIComponent(res.value.downloadUrl)}`,
                 directUrl: res.value.downloadUrl
               });
@@ -715,14 +715,14 @@ app.post('/api/download/info', async (req, res) => {
                 directLinks.push({
                   quality: 'Full HD (1080p MP4)',
                   format: 'mp4',
-                  size: '',
+                  size: 'BETA',
                   downloadUrl: `/api/download/file?title=${encodeURIComponent(videoTitle)}&format=mp4&platform=${platform}&url=${encodeURIComponent(resJson.url)}`,
                   directUrl: resJson.url
                 });
                 directLinks.push({
                   quality: 'Audio (MP3)',
                   format: 'mp3',
-                  size: '',
+                  size: 'BETA',
                   downloadUrl: `/api/download/file?title=${encodeURIComponent(videoTitle)}&format=mp3&platform=${platform}&url=${encodeURIComponent(resJson.url)}`,
                   directUrl: resJson.url
                 });
@@ -731,7 +731,7 @@ app.post('/api/download/info', async (req, res) => {
                   directLinks.push({
                     quality: item.type === 'video' ? `Format ${idx+1} (MP4)` : 'Audio (MP3)',
                     format: item.type === 'video' ? 'mp4' : 'mp3',
-                    size: '',
+                    size: 'BETA',
                     downloadUrl: `/api/download/file?title=${encodeURIComponent(videoTitle)}&format=${item.type === 'video' ? 'mp4' : 'mp3'}&platform=${platform}&url=${encodeURIComponent(item.url)}`,
                     directUrl: item.url
                   });
