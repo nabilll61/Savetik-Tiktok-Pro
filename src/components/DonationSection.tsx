@@ -132,7 +132,7 @@ export default function DonationSection({ onBack, showToast }: DonationSectionPr
         {/* DANA & GoPay Donation Info Card (Moved below Simpan Gambar button) */}
         <div className="mb-8 max-w-lg mx-auto bg-neo-card border-[3px] border-neo-border p-5 rounded-[12px] shadow-[4px_4px_0px_0px_var(--neo-border)] space-y-4">
           <h3 className="font-heading font-black text-sm uppercase tracking-wide text-neo-text text-center border-b-2 border-neo-border pb-2">
-            Donasi Via E-Wallet (DANA & GoPay)
+            SUPPORT / DONASI VIA DANA & GoPay
           </h3>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -179,7 +179,7 @@ export default function DonationSection({ onBack, showToast }: DonationSectionPr
           
           {/* Contact Owner Link */}
           <a
-            href="https://wa.me/628888573485"
+            href="https://wa.me/6289677157146"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full py-3.5 bg-neo-card hover:bg-neo-bg-sec text-neo-text font-heading font-black text-xs md:text-sm uppercase tracking-wider border-[3px] border-neo-border shadow-[4px_4px_0px_0px_var(--neo-border)] active:translate-y-0.5 active:shadow-[1px_1px_0px_0px_var(--neo-border)] transition-all flex items-center justify-between px-5 cursor-pointer rounded-[8px]"
@@ -193,7 +193,7 @@ export default function DonationSection({ onBack, showToast }: DonationSectionPr
 
           {/* Website Buy Otomatis Link */}
           <a
-            href="https://download.amane-acel.web.id/shop"
+            href="https://www.nabil-official.web.id"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full py-3.5 bg-neo-card hover:bg-neo-bg-sec text-neo-text font-heading font-black text-xs md:text-sm uppercase tracking-wider border-[3px] border-neo-border shadow-[4px_4px_0px_0px_var(--neo-border)] active:translate-y-0.5 active:shadow-[1px_1px_0px_0px_var(--neo-border)] transition-all flex items-center justify-between px-5 cursor-pointer rounded-[8px]"
