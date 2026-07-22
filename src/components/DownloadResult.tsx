@@ -607,7 +607,7 @@ export default function DownloadResult({ videoInfo, onClear, showToast }: Downlo
                   </button>
                 </div>
                 <p className="text-xs font-medium line-clamp-3 leading-relaxed text-neo-text opacity-90 italic">
-                  "{videoInfo.caption}"
+                  {videoInfo.caption}
                 </p>
               </div>
             )}
@@ -666,7 +666,7 @@ export default function DownloadResult({ videoInfo, onClear, showToast }: Downlo
                       <div>
                         <p className="text-xs font-black uppercase tracking-tight">{fmt.quality}</p>
                         <p className="text-[10px] text-neo-text opacity-50 font-mono uppercase font-black">
-                          Format: {fmt.format} {fmt.size ? `• SaveTik Downloader :` : ''}
+                          Format: {fmt.format} {fmt.size ? `• SaveTik Downloader : Beta` : ''}
                         </p>
                       </div>
                     </div>
