@@ -191,7 +191,7 @@ export default function Hero({ onExtract, loading, showToast }: HeroProps) {
             ) : (
               <>
                 <Download size={18} className="stroke-[3]" />
-                EKSTRAK MEDIA
+                DOWNLOAD VIDEO
               </>
             )}
           </button>

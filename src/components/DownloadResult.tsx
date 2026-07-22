@@ -139,9 +139,9 @@ export default function DownloadResult({ videoInfo, onClear, showToast }: Downlo
   let audioFormat = videoInfo.formats.find(f => f.format === 'mp3');
   if (!audioFormat) {
     audioFormat = {
-      quality: 'Audio (MP3 - Original Audio)',
+      quality: 'Audio',
       format: 'mp3',
-      size: '4.5 MB',
+      size: 'Beta',
       downloadUrl: `/api/download/file?title=${encodeURIComponent(videoInfo.title + ' - Original Audio')}&format=mp3&platform=${videoInfo.platform}&url=${encodeURIComponent('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3')}`,
       directUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'
     };
@@ -255,11 +255,11 @@ export default function DownloadResult({ videoInfo, onClear, showToast }: Downlo
         let filename = 'SaveTik';
         const ext = formatExt.toLowerCase();
         if (videoInfo.platform === 'tiktok') {
-          filename = `SaveTik-TikTok-Pro.${ext}`;
+          filename = `SaveTik-Beta-TikTok.${ext}`;
         } else if (videoInfo.platform === 'youtube') {
-          filename = `SaveTik-YouTube-Pro.${ext}`;
+          filename = `SaveTik-Beta-YouTube.${ext}`;
         } else if (videoInfo.platform === 'instagram') {
-          filename = `SaveTik-Instagram-Pro.${ext}`;
+          filename = `SaveTik-Beta-Instagram.${ext}`;
         } else {
           const cleanTitle = videoInfo.title.replace(/[^a-zA-Z0-9\s-_]/g, '').trim() || 'SaveTik';
           filename = `${cleanTitle}.${ext}`;
@@ -620,10 +620,10 @@ export default function DownloadResult({ videoInfo, onClear, showToast }: Downlo
                   ? 'bg-[#FFE600] text-black' 
                   : 'bg-neo-card text-neo-text hover:bg-neo-bg-sec'
               }`}
-              title={isFavorite ? 'Hapus dari Favorit' : 'Simpan ke Playlist Favorit'}
+              title={isFavorite ? 'Hapus dari Favorit' : 'Mantap Udah Tersimpan DI PlayLlist Favorit'}
             >
               <Bookmark size={16} className={isFavorite ? 'fill-black' : ''} strokeWidth={3} />
-              {isFavorite ? 'SIMPAN KE BOOKMARK' : 'TERSIMPAN DI FAVORIT'}
+              {isFavorite ? 'TERSIMPAN DI FAVORIT' : 'SIMPAN DI FAVORIT'}
             </button>
 
 
@@ -666,7 +666,7 @@ export default function DownloadResult({ videoInfo, onClear, showToast }: Downlo
                       <div>
                         <p className="text-xs font-black uppercase tracking-tight">{fmt.quality}</p>
                         <p className="text-[10px] text-neo-text opacity-50 font-mono uppercase font-black">
-                          Format: {fmt.format} {fmt.size ? `• Ukuran: ${fmt.size}` : ''}
+                          Format: {fmt.format} {fmt.size ? `• SaveTik Downloader :` : ''}
                         </p>
                       </div>
                     </div>
