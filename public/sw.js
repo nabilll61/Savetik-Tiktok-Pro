@@ -1,7 +1,5 @@
-const CACHE_NAME = 'savetik-pwa-v1';
+const CACHE_NAME = 'savetik-pwa-v4';
 const ASSETS_TO_CACHE = [
-  '/',
-  '/index.html',
   '/favicon.svg',
   '/manifest.json'
 ];
@@ -36,17 +34,24 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
+  // Network-First with Cache Fallback strategy
   event.respondWith(
-    caches.match(event.request).then((cachedResponse) => {
-      if (cachedResponse) {
-        return cachedResponse;
-      }
-      return fetch(event.request).then((networkResponse) => {
+    fetch(event.request)
+      .then((networkResponse) => {
+        // If it's a valid response, we can return it
         return networkResponse;
-      }).catch(() => {
-        // Fallback response for offline navigation if needed
-        return caches.match('/');
-      });
-    })
+      })
+      .catch(() => {
+        // If network fails (offline), fall back to cached response
+        return caches.match(event.request).then((cachedResponse) => {
+          if (cachedResponse) {
+            return cachedResponse;
+          }
+          // If navigation request fails and is offline, return cached root/index
+          if (event.request.mode === 'navigate') {
+            return caches.match('/');
+          }
+        });
+      })
   );
 });
