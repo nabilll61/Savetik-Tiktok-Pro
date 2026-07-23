@@ -1022,7 +1022,14 @@ app.get('/sitemap.xml', (req, res) => {
 // --- VITE MIDDLEWARE & STATIC SERVING ---
 
 async function startServer() {
-  const isProd = process.env.NODE_ENV === "production" || fs.existsSync(path.join(process.cwd(), 'dist'));
+  const isProd = process.env.NODE_ENV === "production";
+  
+  console.log("--- SaveTik Server Startup ---");
+  console.log(`NODE_ENV: ${process.env.NODE_ENV}`);
+  console.log(`isProd: ${isProd}`);
+  console.log(`cwd: ${process.cwd()}`);
+  console.log(`__dirname: ${__dirname}`);
+
   if (!isProd) {
     const vite = await createViteServer({
       server: { middlewareMode: true },
@@ -1030,7 +1037,21 @@ async function startServer() {
     });
     app.use(vite.middlewares);
   } else {
-    const distPath = path.join(process.cwd(), 'dist');
+    // If compiled server runs from 'dist/server.cjs', __dirname is the 'dist' directory.
+    // Otherwise, if running server.ts directly, use 'dist' folder relative to __dirname.
+    let distPath = path.join(process.cwd(), 'dist');
+    if (!fs.existsSync(path.join(distPath, 'index.html'))) {
+      distPath = __dirname.endsWith('dist') ? __dirname : path.join(__dirname, 'dist');
+    }
+    console.log(`Resolved distPath: ${distPath}`);
+    console.log(`index.html exists in distPath: ${fs.existsSync(path.join(distPath, 'index.html'))}`);
+
+    // Serve service worker without caching to allow seamless updates
+    app.get('/sw.js', (req, res) => {
+      res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0');
+      res.sendFile(path.join(distPath, 'sw.js'));
+    });
+
     app.use(express.static(distPath));
     app.get('*', (req, res) => {
       res.sendFile(path.join(distPath, 'index.html'));
